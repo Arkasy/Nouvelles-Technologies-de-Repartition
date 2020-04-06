@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Connexion Banque & Co</title>
+    <script src="/static/js/login.js"></script>
+</head>
+<body>
+<div class="container container-fluid">
+    <div class="form-login">
+        <form th:action="@{/login}" method="post" class="uphf-form-generic">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <h1>Bienvenue sur Banque & Co</h1>
+                </div>
+                <div class="col-12">
+                    <h2>Connectez-vous pour accéder à vos comptes</h2>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="username" id="uniqueId" placeholder="Votre identifiant">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-dark" value="Se connecter"/>
+            </div>
+            <div class="form-group">
+                <a th:href="@{/registration}" class="btn btn-dark">Créer un compte</a>
+            </div>
+        </form>
+        <div th:if="${param.error}">
+            <div class="alert alert-danger">
+                <p>Nom d'utilisateur ou mot de passe invalide.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bienvenue chez Banque & Co</title>
+</head>
+<body>
+<div class="container container-fluid">
+    <div class="row justify-content-center col-12 text-center">
+        <h1>Bienvenue chez Banque & Co</h1>
+    </div>
+    <div class="row justify-content-center col-12 text-center alert alert-info">
+        <span th:text="${'Votre compte a été correctement créé. Vous pouvez maintenant vous connecter avec l identifiant suivant : ' + uniqueId}"></span>
+    </div>
+    <div class="row justify-content-center col-12 text-center">
+        <button class="btn btn-dark" href="@{/login}">Se connecter</button>
+    </div>
+</div>
+</body>
+</html>
