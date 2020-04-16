@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Bienvenue chez Banque & Co</title>
+    <div th:include="_header"/>
 </head>
 <body>
 <div class="container container-fluid">
@@ -12,7 +13,7 @@
         <span th:text="${'Votre compte a été correctement créé. Vous pouvez maintenant vous connecter avec l identifiant suivant : ' + uniqueId}"></span>
     </div>
     <div class="row justify-content-center col-12 text-center">
-        <button class="btn btn-dark" href="@{/login}">Se connecter</button>
+        <a class="btn btn-dark" th:href="@{/login}">Se connecter</a>
     </div>
 </div>
 </body>

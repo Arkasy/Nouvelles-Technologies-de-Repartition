@@ -17,8 +17,11 @@ public class BankAccount {
 
     private double balance ;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Collection<Operation> operations ;
+
+    public BankAccount() {
+    }
 
     public BankAccount(String type, double balance) {
         this.type = type;

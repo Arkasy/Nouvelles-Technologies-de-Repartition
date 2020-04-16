@@ -1,5 +1,6 @@
 package com.istv.banque.Model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
@@ -23,6 +24,7 @@ public class Customer {
 
     private String email;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password ;
 
     @Column(name="is_enabled")

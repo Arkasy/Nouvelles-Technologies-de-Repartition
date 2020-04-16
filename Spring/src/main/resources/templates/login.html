@@ -3,16 +3,18 @@
 <head>
     <title>Connexion Banque & Co</title>
     <script src="/static/js/login.js"></script>
+    <div th:include="_header"/>
+    <link rel="stylesheet" type="text/css" href="static/css/login.css">
 </head>
 <body>
 <div class="container container-fluid">
     <div class="form-login">
         <form th:action="@{/login}" method="post" class="uphf-form-generic">
             <div class="row justify-content-center">
-                <div class="col-12">
+                <div class="col-12 text-center">
                     <h1>Bienvenue sur Banque & Co</h1>
                 </div>
-                <div class="col-12">
+                <div class="col-12 text-center">
                     <h2>Connectez-vous pour accéder à vos comptes</h2>
                 </div>
             </div>
@@ -22,16 +24,16 @@
             <div class="form-group">
                 <input type="password" class="form-control" name="password" placeholder="Mot de passe">
             </div>
-            <div class="form-group">
+            <div class="form-group text-center">
                 <input type="submit" class="btn btn-dark" value="Se connecter"/>
             </div>
-            <div class="form-group">
-                <a th:href="@{/registration}" class="btn btn-dark">Créer un compte</a>
-            </div>
         </form>
+        <div class="row justify-content-center col-12 text-center">
+            <a th:href="@{/register}" class="btn btn-dark">Créer un compte</a>
+        </div>
         <div th:if="${param.error}">
             <div class="alert alert-danger">
-                <p>Nom d'utilisateur ou mot de passe invalide.</p>
+                <p>Nom d'utilisateur ou mot de passe incorrect.</p>
             </div>
         </div>
     </div>
