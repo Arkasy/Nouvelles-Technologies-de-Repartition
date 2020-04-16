@@ -39,7 +39,13 @@ Un web service a aussi été développé en SOAP. Il permet d'ajouter des transa
 
 #### POST ajouter une opération à un compte bancaire 
 
-- Code à envoyer en XML
+le webservice est accessible à cet adresse : 
+- http://localhost:8080/ws 
+
+Il faut préciser que le format envoyé (Content-Type) est du text/xml)
+- http://localhost:8080/ws
+
+Exemple de format à envoyer : 
 ```
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                   xmlns:gs="http://istv.com/banque/operations_webservice">
@@ -53,5 +59,9 @@ Un web service a aussi été développé en SOAP. Il permet d'ajouter des transa
     </soapenv:Body>
 </soapenv:Envelope>
 ```
+- **gs;name** est le nom de la transaction.
+- **gs:idAccount** le compte bancaire à créditer ou débiter.
+- **gs:amount** le montant de l'opération. Préciser le '-' si c'est un débit.
+
 
 
