@@ -6,6 +6,7 @@ import com.istv.banque.Repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -26,8 +27,8 @@ public class BankController {
     return "index";
     }
 
-    @RequestMapping(path="/operations")
-    public String showOperations(HttpServletRequest request, Model model, @RequestParam int accountId){
+    @RequestMapping(path="/account/{id}")
+    public String showOperations(HttpServletRequest request, Model model, @PathVariable int id){
         if(request.getUserPrincipal()==null)
             return "/login";
         Customer currentCustomer = customerRepository.findByUniqueId(Integer.parseInt(request.getUserPrincipal().getName()));
@@ -35,7 +36,7 @@ public class BankController {
         boolean isOwner = false ;
         BankAccount currentBankAccount = null ;
         for(BankAccount ba : currentCustomer.getBankAccount()){
-            if(ba.getId()==accountId) {
+            if(ba.getId()==id) {
                 isOwner = true;
                 currentBankAccount = ba ;
             }
