@@ -10,7 +10,7 @@
             </li>
         </ul>
         <div class="form-inline my-2 my-lg-0">
-            <span th:text="${'Bonjour ' + customer.firstname + ' ' + customer.lastname}"/>
+            <span th:text="${'Bonjour ' + customer.firstname + ' ' + customer.lastname}"/><br />
             <a th:href="@{/logout}" class="btn btn-dark">Déconnexion</a>
         </div>
     </div>
