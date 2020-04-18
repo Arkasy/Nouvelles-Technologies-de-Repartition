@@ -24,12 +24,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 import javax.swing.plaf.nimbus.State;
 import java.io.IOException;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.net.URISyntaxException;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -181,6 +181,7 @@ public class LocationController {
             return "message";
         }
         String name = location.getTitle() + " - " + new Date();
+        System.out.println("CALL API");
         if(debit(name, Integer.valueOf(currentUser.getBankAccount()), location.getPrice()) && credit(name, location.getOwner().getBankAccount(), location.getPrice())){
             LocationRequest locationRequest = new LocationRequest(location, currentUser, new Date(), false);
             locationRequestRepo.save(locationRequest);
@@ -231,7 +232,7 @@ public class LocationController {
 //        return enabled;
     }
 
-    private boolean debit(String name, int idAccount, double amount) throws URISyntaxException, IOException, InterruptedException {
+    private boolean debit(String name, int idAccount, double amount) throws IOException, InterruptedException, URISyntaxException {
         final URI url = new URI("http://localhost:8080/banque/ws");
         String xmlContent = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n" +
                 "                  xmlns:gs=\"http://istv.com/banque/operations_webservice\">\n" +
@@ -244,7 +245,7 @@ public class LocationController {
                 "        </gs:AddOperationRequest>\n" +
                 "    </soapenv:Body>\n" +
                 "</soapenv:Envelope>";
-
+        System.out.println(xmlContent);
         HttpClient client = HttpClient.newBuilder().build();
         HttpRequest request = HttpRequest.newBuilder().uri(url)
                 .POST(HttpRequest.BodyPublishers.ofString(xmlContent))
