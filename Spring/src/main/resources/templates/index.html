@@ -14,6 +14,7 @@
                 <th scope="col">Type de compte</th>
                 <th scope="col">Solde</th>
                 <th scope="col">-</th>
+                <th scope="col">Extract</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@
                 <td th:text="${account.type}"></td>
                 <td th:text="${account.balance + '€'}"></td>
                 <td><a th:href="${'account/' + account.id}">Voir opérations</a></td>
+                <td><a th:href="${'api/customer/'+customer.uniqueId+'/account/'+account.id+'/operations'}" class="btn btn-primary" target="_blank">Extraction</a></td>
             </tr>
         </tbody>
     </table>

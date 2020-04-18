@@ -1,0 +1,17 @@
+<nav class="navbar" id="uphf-navigation" xmlns:th="http://www.w3.org/1999/xhtml">
+    <a id="navbar-menu" href="javascript:void(0);"></a>
+    <a id="navbar-profile" th:href="@{/profile}">
+        <div class="navbar-profile-avatar"></div>
+        <div class="navbar-profile-infos">
+            <span th:text="${session.current_user.lastname}" class="navbar-profile-infos-lastname"></span>
+            <span th:text="${session.current_user.firstname}" class="navbar-profile-infos-firstname"></span>
+        </div>
+    </a>
+</nav>
+
+<section id="uphf-navigation-menu" data-menu="false">
+    <ul>
+        <li><a th:href="@{/}" class="uphf-link-overlay"></a><i class="fas fa-home"></i></li>
+        <li class="uphf-navbar-logout"><a th:href="@{/logout}" class="uphf-link-overlay"></a><i class="fas fa-power-off"></i></li>
+    </ul>
+</section>

@@ -1,0 +1,25 @@
+<div th:if="${locations != null}">
+    <h2>Voici les dernières locations proposées</h2>
+    <div th:each="location : ${locations}">
+        <div class="col-12 col-sm-6 col-md-4 card">
+            <img class="card-img-top" th:src="*{'data:image/*;base64,'+location.imageString}"
+                 th:alt="${location.title}">
+            <div class="card-body">
+                <h4 class="card-title text-center" th:text="${location.title}"></h4>
+                <p class="card-text">
+                    <span th:text="${'Prix : ' + location.price + ' €'}"></span>
+                    <span th:text="${'Type : ' + location.type}"></span>
+                    <span th:text="${'Place : ' + location.countPersons + ' personne(s)'}"></span>
+
+                    <span th:text="${'Adresse : ' + location.address + ', ' + location.postalCode + ' à ' + location.city}"></span>
+                    <a th:href="@{'/location/bankRequest?id='+${location.id}}" class="btn btn-primary text-center">Louer ce bien</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:if="${locations == null}">
+    <div class="alert alert-warning">
+        <span>Aucune bien n'est disponible à la location ou ne correspond à vos critères de recherche.</span>
+    </div>
+</div>

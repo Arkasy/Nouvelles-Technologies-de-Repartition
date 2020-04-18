@@ -1,0 +1,54 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:insert="_head"/>
+
+<body th:style="'background:url('+ @{/static/images/bg-home.jpg} +');'">
+<div th:insert="_navbar"/>
+
+
+<div id="uphf-container">
+    <div class="uphf-profile">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-home"></i><span>Profil</span>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>
+                        Nom : <span th:text="${session.current_user.lastname}" class="show-profile-infos-lastname"></span>
+                    </li>
+                    <li>
+                        Prénom : <span th:text="${session.current_user.firstname}" class="show-profile-infos-firstname"></span>
+                    </li>
+                    <li>
+                        Adresse : <span th:text="${session.current_user.username}" class="show-profile-infos-username"></span>
+                    </li>
+                    <li>
+                        Email : <span th:text="${session.current_user.email}" class="show-profile-infos-email"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-home"></i><span>Vos biens</span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="card col-2" th:each="location : ${list_location}">
+                        <img class="card-img-top" th:src="*{'data:image/*;base64,'+location.imageString}"  alt="">
+                        <div class="card-body">
+                            <span th:text="${location.title}"></span>
+                        </div>
+                        <a th:href="@{'/location/show?id=' + ${location.id}}" class="uphf-link-overlay"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:insert="_footer"/>
+</body>
+</html>

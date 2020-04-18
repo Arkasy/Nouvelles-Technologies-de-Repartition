@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head th:insert="_head"/>
+<body th:style="'background:url('+ @{/static/images/bg-home.jpg} +');'">
+<div class="container">
+    <div th:insert="_navbar"/>
+    <div id="uphf-container">
+        <div class="uphf-content">
+            <form th:action="@{/location/rentRequest}" method="POST" class="uphf-form-generic"
+                  xmlns:th="http://www.w3.org/1999/xhtml" enctype="multipart/form-data">
+                <h1>Confirmer le paiement</h1>
+
+                <div class="uphf-form-block">
+                    <label>Nom</label>
+                    <input class="form-control " type="text" th:value="${user.lastname}" name="lastname" disabled/>
+                </div>
+                <div class="uphf-form-block">
+                    <label>Prénom</label>
+                    <input class="form-control " type="text" name="firstname" th:value="${user.firstname}" disabled/>
+                </div>
+                <div class="uphf-form-block">
+                    <label>Compte en banque</label>
+                    <input class="form-control" type="text" name="accountId" th:value="${user.bankAccount}" disabled/>
+                </div>
+                <input class="form-control" type="hidden" name="locationId" th:value="${#request.getParameter('id')}"/>
+                <div class="uphf-form-block">
+                    <input th:type="submit" class="btn btn-dark" th:value="Confirmer"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:insert="_footer"/>
+</body>
+</html>

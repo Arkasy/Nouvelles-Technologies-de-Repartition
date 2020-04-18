@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:insert="_head"/>
+
+<body th:style="'background:url('+ @{/static/images/bg-home.jpg} +');'">
+<div th:insert="_navbar"/>
+
+
+<div id="uphf-container">
+    <ul class="uphf-index-link">
+        <li class="uphf-index-link-location-view"><span>Louer un bien</span><a th:href="@{/location/}" class="uphf-link-overlay"></a></li>
+        <li class="uphf-index-link-location-add"><span>Proposer un bien</span><a th:href="@{/location/new}" class="uphf-link-overlay"></a></li>
+    </ul>
+</div>
+
+<footer th:insert="_footer"/>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:include="_head"/>
+<body th:style="'background:url('+ @{/static/images/bg-home.jpg} +');'">
+<div th:insert="_navbar"/>
+
+<div id="uphf-container">
+    <div class="uphf-content" th:insert="location/_form">
+
+    </div>
+</div>
+</body>
+</html>
