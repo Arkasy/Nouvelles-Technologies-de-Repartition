@@ -7,16 +7,16 @@ TP - Application bancaire mettant en œuvre l’architecture Wildfly et Tomcat a
 
 #### Inscription
 Cette application permet à un utilisateur de se créer un compte bancaire à l'adresse suivante :
-- http://localhost:8080/register
+- http://localhost:8080/banque/register
 Après son inscription, un identifiant unique est affiché. Il permettra de se connecter.
 
 #### Connexion
 Un utilisateur doit forcément se connecter pour accéder aux différentes fonctionnalités. La connexion s'effectue à partir de l'identifiant unique qui s'affiche après l'inscription de l'utilisateur, et son mot de passe.
-- http://localhost:8080/login
+- http://localhost:8080/banque/login
 
 #### Utilisateur connecté
 Lorsque l'utilisateur est connecté, il pourra voir le solde de ses comptes : 
-- http://localhost:8080/
+- http://localhost:8080/banque/
 
 #### Consulter ses opérations d'un compte
 L'utilisateur peut consulter la liste des opérations qui ont eu lieu sur un de ses comptes. Il a juste à cliquer sur "voir opérations" sur la ligne du compte correspondant.
@@ -26,13 +26,13 @@ L'utilisateur peut consulter la liste des opérations qui ont eu lieu sur un de 
 Pour accéder à l'API en JSON, il n'y pas besoin d'identifiant ou de token (nous ne devions pas nous occuper de l'aspect sécurité). Celle ci doit nous permettre de récupérer différentes données qui ont été précisées dans le sujet. On doit donc utiliser une méthode GET
 
 #### GET liste des utilisateurs
-- http://localhost:8080/api/customer
+- http://localhost:8080/banque/api/customer
 
 #### GET détails d'un utilisateur
-- http://localhost:8080/api/customer/{uniqueID}
+- http://localhost:8080/banque/api/customer/{uniqueID}
 
 #### GET listes des opérations d'un compte bancaire
-- http://localhost:8080/api/customer/{uniqueID}/account/{accountID}/operations
+- http://localhost:8080/banque/api/customer/{uniqueID}/account/{accountID}/operations
 
 ### SOAP 
 Un web service a aussi été développé en SOAP. Il permet d'ajouter des transactions a un compte bancaire, que ce soit des débits, ou des crédits.
@@ -40,10 +40,10 @@ Un web service a aussi été développé en SOAP. Il permet d'ajouter des transa
 #### POST ajouter une opération à un compte bancaire 
 
 le webservice est accessible à cet adresse : 
-- http://localhost:8080/ws 
+- http://localhost:8080/banque/ws 
 
 Il faut préciser que le format envoyé (Content-Type) est du text/xml)
-- http://localhost:8080/ws
+- http://localhost:8080/banque/ws
 
 Exemple de format à envoyer : 
 ```
