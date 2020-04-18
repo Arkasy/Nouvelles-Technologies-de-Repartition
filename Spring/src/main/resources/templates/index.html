@@ -2,14 +2,29 @@
 <html lang="fr">
 <head>
     <title>Banque & Co</title>
+    <div th:include="_header"/>
 </head>
 <body>
-<div class="container container-fluid">
-    <div class="row col-12">
-        <div class="alert alert-info">
-            <span th:text="${'bonjour ' + customer.uniqueId}"></span>
-        </div>
-    </div>
+<div class="container-fluid">
+    <div th:include="_navbar"></div>
+    <table class="table account-list">
+        <thead>
+            <tr>
+                <th scope="col">Numéro de compte</th>
+                <th scope="col">Type de compte</th>
+                <th scope="col">Solde</th>
+                <th scope="col">-</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="account : ${customer.bankAccount}">
+                <th scope="row" th:text="${account.id}"></th>
+                <td th:text="${account.type}"></td>
+                <td th:text="${account.balance + '€'}"></td>
+                <td><a th:href="${'account/' + account.id}">Voir opérations</a></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>

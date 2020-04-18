@@ -31,8 +31,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(encoder())
                 .and()
                 .jdbcAuthentication()
-                .dataSource(dataSource).usersByUsernameQuery("SELECT unique_id, password, enabled from customer c where unique_id = ?")
-                .authoritiesByUsernameQuery("SELECT unique_id, password, enabled from customer c where customer = ?");
+                .dataSource(dataSource).usersByUsernameQuery("SELECT unique_id, password, is_enabled from customer c where unique_id = ?")
+                .authoritiesByUsernameQuery("SELECT unique_id, password, is_enabled from customer c where customer = ?");
     }
 
     @Bean
@@ -53,7 +53,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/resources/**").permitAll()
                 .antMatchers("/register").permitAll()
-                .antMatchers("/*").authenticated().and()
+                //.antMatchers("/*").authenticated()
+              //  .antMatchers("/ws*").permitAll()
+                .antMatchers("/api/**").permitAll().and()
                 .formLogin().loginPage("/login").permitAll()
                 .and().logout().permitAll();
 

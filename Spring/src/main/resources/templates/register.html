@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <title>Créer votre compte chez Banque & Co</title>
+    <div th:include="_header"/>
+    <link rel="stylesheet" type="text/css" href="static/css/register.css">
 </head>
 <body>
 <div class="container container-fluid">
@@ -31,10 +33,13 @@
             <label for="confirmPassword">Mot de passe</label>
             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirmer votre mot de passe">
         </div>
-        <div class="form-group">
+        <div class="form-group justify-content-center text-center">
             <input type="submit" class="btn btn-dark" value="S'inscrire"/>
         </div>
     </form>
+    <div class="row justify-content-center col-12 text-center">
+        <button class="btn btn-dark" href="@{/login}">Déjà un compte ? connectez vous</button>
+    </div>
 </div>
 </body>
 </html>

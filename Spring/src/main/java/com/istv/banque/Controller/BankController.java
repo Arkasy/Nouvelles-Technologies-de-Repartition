@@ -1,11 +1,14 @@
 package com.istv.banque.Controller;
 
+import com.istv.banque.Model.BankAccount;
 import com.istv.banque.Model.Customer;
 import com.istv.banque.Repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,5 +25,25 @@ public class BankController {
         Customer currentCustomer = customerRepository.findByUniqueId(Integer.parseInt(request.getUserPrincipal().getName()));
         model.addAttribute("customer", currentCustomer);
     return "index";
+    }
+
+    @RequestMapping(path="/account/{id}")
+    public String showOperations(HttpServletRequest request, Model model, @PathVariable int id){
+        if(request.getUserPrincipal()==null)
+            return "/login";
+        Customer currentCustomer = customerRepository.findByUniqueId(Integer.parseInt(request.getUserPrincipal().getName()));
+        model.addAttribute("customer", currentCustomer);
+        boolean isOwner = false ;
+        BankAccount currentBankAccount = null ;
+        for(BankAccount ba : currentCustomer.getBankAccount()){
+            if(ba.getId()==id) {
+                isOwner = true;
+                currentBankAccount = ba ;
+            }
+        }
+        if(!isOwner)
+            return "redirect:/";
+        model.addAttribute("account", currentBankAccount);
+        return "account_operation";
     }
 }
