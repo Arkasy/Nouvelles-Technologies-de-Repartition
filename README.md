@@ -83,5 +83,5 @@ Le site de commerce est un site de location où on peut s'inscrire avec son num�
 Ces différentes actions sont présentées dans la vidéo Youtube.
 
 ## Lien vidéo youtube
-[Cliquez ici]( https://youtu.be/bjOPzBlAw4Q)
+[Cliquez ici](https://www.youtube.com/watch?v=NiHrwfvTaCU)
 
