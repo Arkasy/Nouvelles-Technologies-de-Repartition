@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:insert="_head"/>
+<body th:style="'background:url('+ @{/static/images/bg-home.jpg} +');'">
+<div th:insert="_navbar"/>
+<div id="uphf-container">
+    <div class="uphf-content">
+        <div class="uphf-form-search">
+            <h4>Peaufiner votre recherche</h4>
+            <form class="uphf-form-search-criteria">
+                <div class="uphf-form-search-price">
+                    <span><b>Prix </b></span>
+                    <input type="number" class="uphf-form-search-input-price" name="minPrice"/>
+                    <span> à </span>
+                    <input type="number" class="uphf-form-search-input-price" name="maxPrice"/>
+                    <span> € - </span>
+                </div>
+                <div class="uphf-form-search-type">
+                    <span><b>Type </b></span>
+                    <input type="checkbox" name="appartement" id="appartementFilter">
+                    <span for="appartementFilter">Appartement</span>
+                    <input type="checkbox" name="studio" id="studioFilter">
+                    <span for="studioFilter">Studio</span>
+                    <input type="checkbox" name="house" id="houseFilter">
+                    <span for="houseFilter">Maison</span>
+                </div>
+                <div class="uphf-form-search-city">
+                    <span><b>Ville  </b></span>
+                    <input class="uphf-form-search-input-city" placeholder="Paris, Lyon, Lille ..." name="city"/>
+                </div>
+                <input type="button" class="btn btn-dark" value="Rechercher" id="search-button">
+            </form>
+        </div>
+        <div class="row uphf-form-search">
+            <div id="locations-list" th:include="location/fragments/_list"/>
+        </div>
+    </div>
+</div>
+<footer th:insert="_footer"/>
+</body>
+</html>

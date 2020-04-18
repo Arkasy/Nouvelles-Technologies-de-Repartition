@@ -1,0 +1,54 @@
+<form th:action="@{/location/new}" th:object="${location}" method="POST" class="uphf-form-generic"
+      xmlns:th="http://www.w3.org/1999/xhtml" enctype="multipart/form-data">
+    <h1>Ajouter un bien</h1>
+
+    <div class="uphf-form-block">
+        <label>Titre</label>
+        <input class="form-control " type="text" th:field="*{title}"/>
+    </div>
+    <div class="uphf-form-block">
+        <label>Adresse</label>
+        <input class="form-control" type="text" th:field="*{address}"/>
+    </div>
+    <div class="uphf-form-block">
+        <label>Code Postal</label>
+        <input class="form-control" type="text" th:field="*{postalCode}"/>
+    </div>
+    <div class="uphf-form-block">
+        <label>Ville</label>
+        <input class="form-control" type="text" th:field="*{city}"/>
+    </div>
+    <div class="uphf-form-block">
+        <label>Type</label>
+        <select th:field="*{type}" class="form-control">
+            <option value="appartement" default>Appartement</option>
+            <option value="house">Maison</option>
+            <option value="studio">Studio</option>
+        </select>
+    </div>
+    <div class="uphf-form-block">
+        <label>Prix</label>
+        <input th:field="*{price}" type="number" class="form-control">
+    </div>
+    <div class="uphf-form-block">
+        <label>Nombre de place</label>
+        <select th:field="*{countPersons}" class="form-control">
+            <option value="1" default>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+    </div>
+    <div class="uphf-form-block">
+        <label>Disponibilité</label>
+        <input type="checkbox" th:field="*{available}"/>
+    </div>
+    <div class="uphf-form-block">
+        <input th:type="file" th:field="*{image}" th:name="image" th:id="image" accept="image/*" multiple="multiple"/>
+    </div>
+    <div class="uphf-form-block">
+        <input th:type="submit" class="btn btn-dark" th:value="Confirmer"/>
+    </div>
+</form>

@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:insert="_head"/>
+
+<body>
+<div th:insert="_navbar"/>
+
+
+<div id="uphf-container">
+    <div th:class="${ 'alert ' + messageClass}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+
+<div th:insert="_footer"/>
+</body>
+</html>

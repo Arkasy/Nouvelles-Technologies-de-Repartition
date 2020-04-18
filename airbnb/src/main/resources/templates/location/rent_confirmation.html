@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head th:insert="_head"/>
+<body th:style="'background:url('+ @{/static/images/bg-home.jpg} +');'">
+<div class="container">
+    <div th:insert="_navbar"/>
+    <div class="alert-info">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+<footer th:insert="_footer"/>
+</body>
+</html>

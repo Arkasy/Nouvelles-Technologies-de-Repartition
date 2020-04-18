@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:insert="_head"/>
+<body th:style="'background:url('+ @{/static/images/bg-home.jpg} +');'">
+    <div id="uphf-container">
+        <div class="uphf-content">
+            <form th:action="@{/login}" method="post" class="uphf-form-generic">
+                <h1>Formulaire de connexion</h1>
+                <div class="uphf-form-block">
+                    <input type="text" class="form-control" name="username" placeholder="Nom d'utilisateur">
+                </div>
+                <div class="uphf-form-block">
+                    <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+                </div>
+                <div class="uphf-form-block">
+                    <input type="submit" class="btn btn-dark" value="Se connecter"/>
+                </div>
+                <div class="uphf-form-block">
+                    <a th:href="@{/registration}" class="uphf-link-account">Créer un compte</a>
+                </div>
+            </form>
+            <div th:if="${param.error}" class="uphf-alerts">
+                <div class="alert alert-danger">
+                    <p>Nom d'utilisateur ou mot de passe invalide.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head th:insert="_head"/>
+<body th:style="'background:url('+ @{/static/images/bg-home.jpg} +');'">
+<div id="uphf-container">
+    <div class="uphf-content">
+        <form th:action="@{/registration}" method="post" class="uphf-form-generic">
+            <h1>formulaire d'inscription</h1>
+
+            <div class="uphf-form-block">
+                <input type="text" class="form-control" name="username" placeholder="Pseudo">
+            </div>
+            <div class="uphf-form-block">
+                <input type="text" class="form-control" name="lastname" placeholder="Nom">
+            </div>
+            <div class="uphf-form-block">
+                <input type="text" class="form-control" name="firstname" placeholder="Prénom">
+            </div>
+            <div class="uphf-form-block">
+                <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+            </div>
+            <div class="uphf-form-block">
+                <input type="password" class="form-control" name="confirmPassword" placeholder="Répéter le mot de pase">
+            </div>
+            <div class="uphf-form-block">
+                <input type="text" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div class="uphf-form-block">
+                <input type="number" class="form-control" name="bankAccount" placeholder="Numéro de compte">
+            </div>
+            <div class="uphf-form-block">
+                <input type="submit" class="btn btn-dark" value="S'inscrire"/>
+            </div>
+            <div class="uphf-form-block">
+                <a th:href="@{/}" class="uphf-link-account">Retour</a>
+            </div>
+        </form>
+
+
+        <div th:if="${param.error}" class="uphf-alerts">
+            <div class="alert alert-danger">
+                <p>Nom d'utilisateur ou mot de passe invalide.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:insert="_footer"/>
+</body>
+</html>

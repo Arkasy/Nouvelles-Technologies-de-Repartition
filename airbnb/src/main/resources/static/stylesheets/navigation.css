@@ -1,0 +1,161 @@
+#uphf-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    padding: 0;
+    z-index: 5000;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+#uphf-navigation a.navbar-brand {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #3b435f;
+    margin: 0 auto;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+}
+
+#uphf-navigation a#navbar-profile {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.8);
+    height: 60px;
+    width: 200px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+#uphf-navigation a#navbar-profile:hover {
+    background: rgba(255,255,255,0.9);
+
+}
+
+#uphf-navigation a#navbar-profile > .navbar-profile-avatar {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    background: white;
+    float: left;
+    margin: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.4);
+    overflow: hidden;
+}
+
+#uphf-navigation a#navbar-profile > .navbar-profile-avatar:before {
+    position: relative;
+    display: inline-block;
+    content: "\f007";
+    font-family: "Font Awesome 5 Free";
+    color: #3b435f;
+    font-weight: 800;
+    line-height: 40px;
+    width: 40px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+#uphf-navigation a#navbar-profile > .navbar-profile-infos {
+    position: relative;
+    float: left;
+    width: calc(100% - 60px);
+    font-family: "Carter One";
+    font-size: 0.9rem;
+    margin: 14px 0;
+    padding: 0 10px 0 0;
+    line-height: 16px;
+    color: #3b435f;
+}
+
+#uphf-navigation a#navbar-profile > .navbar-profile-infos > .navbar-profile-infos-lastname {
+    display: block;
+    width: 100%;
+}
+
+#uphf-navigation a#navbar-profile > .navbar-profile-infos > .navbar-profile-infos-firstname {
+    display: block;
+    width: 100%;
+}
+
+#uphf-navigation a#navbar-menu {
+    position: relative;
+    background: rgba(255,255,255,0.8);
+    margin: 10px;
+    height: 60px;
+    width: 60px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    color: #e1e1e1;
+    font-size: 2rem;
+    line-height: 60px;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
+    text-decoration: none;
+}
+
+
+#uphf-navigation a#navbar-menu:before {
+    display: inline-block;
+    content: "\f0c9";
+    color: #3b435f;
+    font-size: 2rem;
+    line-height: 60px;
+    font-weight: 800;
+    font-family: "Font Awesome 5 Free";
+}
+
+#uphf-navigation a#navbar-menu:hover {
+    background: rgba(255,255,255,0.9);
+
+}
+
+section#uphf-navigation-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 500;
+}
+
+section#uphf-navigation-menu[data-menu="false"] {
+    display: none;
+}
+
+section#uphf-navigation-menu > ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+section#uphf-navigation-menu > ul li {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    border-radius: 3px;
+    background: #3b4a5a;
+    color: #e1e1e1;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+section#uphf-navigation-menu > ul li.uphf-navbar-logout {
+    background: #ca4646;
+}
+
+section#uphf-navigation-menu > ul li > i {
+    position: relative;
+    display: inline-block;
+    line-height: 60px;
+    font-size: 2rem;
+}
