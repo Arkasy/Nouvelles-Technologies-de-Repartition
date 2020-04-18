@@ -77,3 +77,11 @@ Pour tester le service SOAP : main_SOAP
 Résultat du test : 
 ![alt text](https://zupimages.net/up/20/16/wp49.png)
 
+## Projet site commerce
+Le site de commerce est un site de location où on peut s'inscrire avec son numéro de compte en banque, ajouter des biens à la location et louer des biens.
+
+Ces différentes actions sont présentées dans la vidéo Youtube.
+
+## Lien vidéo youtube
+[Cliquez ici]( https://youtu.be/bjOPzBlAw4Q)
+
