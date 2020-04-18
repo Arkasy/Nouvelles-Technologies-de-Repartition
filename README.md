@@ -63,5 +63,17 @@ Exemple de format à envoyer :
 - **gs:idAccount** le compte bancaire à créditer ou débiter.
 - **gs:amount** le montant de l'opération. Préciser le '-' si c'est un débit.
 
+## Service de test
+Un service de test a été développé dans le dossier service_test. Il contient 2 mains, qui permet d'essayer sur les 2 différentes API. 
 
+/!\ les liens correspondant à l'accès au application est en écrit en dur dans le code, comme les identifiants de compte client et de compte bancaire. Il faut donc les modifier pour effectuer les tests.
+
+Un main permet de tester les services JSON : main_JSON.
+
+Résultat du test : 
+![alt text](https://zupimages.net/up/20/16/pnja.jpg)
+
+Pour tester le service SOAP : main_SOAP 
+Résultat du test : 
+![alt text](https://zupimages.net/up/20/16/wp49.png)
 
